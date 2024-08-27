@@ -9,6 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+dir = os.path.dirname(os.path.abspath(__file__))
 name = re.search(r'([^/]+)\.py$', sys.argv[0])[1]
 patterns = []
 sentences = []
@@ -112,11 +113,25 @@ def cartesian(n=2000):
 
 def write_qas(QAs):
 	subprocess.run(['rm', '-f', f'{name}.sqlite.new'])
-	subprocess.run(['sqlite3', f'{name}.sqlite.new', '-init', '../lib/schema.sql'], input='', stdout=subprocess.PIPE)
+	subprocess.run(['sqlite3', f'{name}.sqlite.new', '-init', f'{dir}/schema.sql'], input='', stdout=subprocess.PIPE)
 	con = sqlite3.connect(f'{name}.sqlite.new')
 	db = con.cursor()
 	for qa in QAs:
 		db.execute("INSERT INTO qas (qa_q, qa_a) VALUES (?, ?)", [json.dumps(qa[0]), json.dumps(qa[1])])
+	con.commit()
+
+	os.rename(f'{name}.sqlite.new', f'{name}.sqlite')
+
+def write_qs(Qs):
+	subprocess.run(['rm', '-f', f'{name}.sqlite.new'])
+	subprocess.run(['sqlite3', f'{name}.sqlite.new', '-init', f'{dir}/schema.sql'], input='', stdout=subprocess.PIPE)
+	con = sqlite3.connect(f'{name}.sqlite.new')
+	db = con.cursor()
+	for q in Qs:
+		db.execute("INSERT INTO qs (q) VALUES (?)", [json.dumps(q)])
+	con.commit()
+
+	db.execute("VACUUM")
 	con.commit()
 
 	os.rename(f'{name}.sqlite.new', f'{name}.sqlite')
