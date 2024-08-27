@@ -92,7 +92,7 @@ def instantiate():
 		nps.append(np)
 	patterns = nps
 
-def cartesian(n=2000):
+def cartesian(n=10000):
 	global sentences
 	for i,p in enumerate(patterns):
 		for j,w in enumerate(patterns[i]):
