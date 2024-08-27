@@ -8,19 +8,27 @@ sys.path.append(dir + '/../_lib')
 from shared import *
 import shared as S
 
-load_corpus('2x-corpus.txt')
+load_corpus('2-1x-corpus.txt')
 
 S.patterns.append([
 	['ippassaq+Adv\tippassaq'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*Lok') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'Sem/(Fem|Mask)\+.*Abs') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'\+Int\+2Sg\+3SgO\t') | Grep(r'\+Sem/(socialize|teach|encounter|see)\+') | Inv(r'\+(SSA|LI|LU)\b'),
+	C() | Grep(r'\+Int\+2Sg\t') | Grep(r'\+Sem/(be_attribute|learn|lodge|refuse|work|speak_emot)\+') | Inv(r'\+(SSA|LI|LU)\b'),
 	])
 S.patterns.append([
 	['aqaguagu+Adv\taqaguagu'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*Lok') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'Sem/(Fem|Mask)\+.*Abs') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'\+SSA\b.*\+Int\+2Sg\+3SgO\t') | Grep(r'\+Sem/(socialize|teach|encounter|see)\+') | Inv(r'\+(LI|LU)\b'),
+	C() | Grep(r'\+SSA\b.*\+Int\+2Sg\t') | Grep(r'\+Sem/(be_attribute|learn|lodge|refuse|work|speak_emot)\+') | Inv(r'\+(LI|LU)\b'),
+	])
+S.patterns.append([
+	['ippassaq+Adv\tippassaq'],
+	C() | Grep(r'Sem/(Geo|inst)\+.*(Abl|Trm)') | Inv(r'\+(LI|LU)\b'),
+	C() | Grep(r'\+Int\+2Sg\t') | Grep(r'\+Sem/(run|reach)\+') | Inv(r'\+(SSA|LI|LU)\b'),
+	])
+S.patterns.append([
+	['aqaguagu+Adv\taqaguagu'],
+	C() | Grep(r'Sem/(Geo|inst)\+.*(Abl|Trm)') | Inv(r'\+(LI|LU)\b'),
+	C() | Grep(r'\+SSA\b.*\+Int\+2Sg\t') | Grep(r'\+Sem/(run|reach)\+') | Inv(r'\+(LI|LU)\b'),
 	])
 
 cartesian()
