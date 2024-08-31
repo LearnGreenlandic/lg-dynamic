@@ -43,7 +43,7 @@ def qa(sentence):
 			Q.append([q0, S.corpus_kv[q0]])
 		else:
 			Q.append(w)
-			w[0].replace('+Int+2Sg', '+Ind+1Sg').replace('+NNGIT+', '+')
+			w[0] = w[0].replace('+Int+2Sg', '+Ind+1Sg').replace('+NNGIT+', '+')
 
 		if w[0] not in S.corpus_kv:
 			if '+Adv' not in w[0]:
