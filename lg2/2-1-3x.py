@@ -13,22 +13,22 @@ load_corpus('2-1x-corpus.txt')
 S.patterns.append([
 	['ippassaq+Adv\tippassaq'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*Lok') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'\+Int\+2Sg\t') | Grep(r'\+Sem/(be_attribute|learn|lodge|refuse|work|speak_emot)\+') | Grep(r'\+NNGIT') | Inv(r'\+(SSA|LI|LU)\b'),
+	C() | Grep(r'\+Int\+2Sg\t') | Grep(r'\+Sem/(be_attribute|learn|lodge|refuse|work|speak_emot)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|SSA|LI|LU)\b'),
 	])
 S.patterns.append([
 	['aqaguagu+Adv\taqaguagu'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*Lok') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\t') | Grep(r'\+Sem/(be_attribute|learn|lodge|refuse|work|speak_emot)\+') | Grep(r'\+NNGIT') | Inv(r'\+(LI|LU)\b'),
+	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\t') | Grep(r'\+Sem/(be_attribute|learn|lodge|refuse|work|speak_emot)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|LI|LU)\b'),
 	])
 S.patterns.append([
 	['ippassaq+Adv\tippassaq'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*(Abl|Trm)') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'\+Int\+2Sg\t') | Grep(r'\+Sem/(run|reach)\+') | Grep(r'\+NNGIT') | Inv(r'\+(SSA|LI|LU)\b'),
+	C() | Grep(r'\+Int\+2Sg\t') | Grep(r'\+Sem/(run|reach)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|SSA|LI|LU)\b'),
 	])
 S.patterns.append([
 	['aqaguagu+Adv\taqaguagu'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*(Abl|Trm)') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\t') | Grep(r'\+Sem/(run|reach)\+') | Grep(r'\+NNGIT') | Inv(r'\+(LI|LU)\b'),
+	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\t') | Grep(r'\+Sem/(run|reach)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|LI|LU)\b'),
 	])
 
 cartesian()
