@@ -20,7 +20,7 @@ S.patterns.append([
 	['aqaguagu+Adv\taqaguagu'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*Lok') | Inv(r'\+(LI|LU)\b'),
 	C() | Grep(r'Sem/(Fem|Mask)\+.*Abs') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\+3SgO\t') | Grep(r'\+Sem/(socialize|teach|encounter|see)\+') | Grep(r'\+NNGIT') | Inv(r'\+(LI|LU)\b'),
+	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\+3SgO\t') | Grep(r'\+Sem/(socialize|teach|encounter|see)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|LI|LU)\b'),
 	])
 
 cartesian()
