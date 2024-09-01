@@ -41,7 +41,7 @@ def qa(sentence):
 		Q.append(w)
 		w[0] = w[0].replace('+Int+2Sg', '+Ind+1Sg')
 		w[0] = w[0].replace('+Par+1Sg', '+Par+2Sg')
-		if i == 1:
+		if w[0].startswith('uanga'):
 			w = ['illit+Pron+Abs+2Sg', 'illit']
 		if w[0] not in S.corpus_kv:
 			return
