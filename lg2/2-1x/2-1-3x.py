@@ -4,7 +4,7 @@ import sys
 
 dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(dir)
-sys.path.append(dir + '/../_lib')
+sys.path.append(dir + '/../../_lib')
 from shared import *
 import shared as S
 
