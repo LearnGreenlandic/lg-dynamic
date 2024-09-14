@@ -69,6 +69,9 @@ def load_corpus(fn):
 		l = l.strip()
 		corpus.append(l)
 
+def sfx(lst, s):
+	return [e + s for e in list(lst)]
+
 def instantiate():
 	global patterns
 	nps = []
