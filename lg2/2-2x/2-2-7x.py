@@ -22,7 +22,7 @@ def qa(sentence):
 	global QAs
 	Q = []
 	A = []
-	for i,w in enumerate(sentence):
+	for w in sentence:
 		w = w.split('\t')
 		# Inverted logic, as we find +LAAR+NNGIT and turn it into the question
 		A.append(w)
