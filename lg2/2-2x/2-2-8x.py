@@ -11,11 +11,11 @@ import shared as S
 load_corpus('2-2x-corpus.txt')
 
 S.patterns.append([
-	sfx(C() | Grep(r'Sem/(Fem|Mask|Hprof).*Abs\+Sg\+UNA\b') | Inv(r'\+INNAQ') | Inv(r'\+(LI|LU)\b'), '\t@SUBJ>'),
+	sfx(C() | Grep(r'(^(kalaaleq|qallunaaq)|(Sem/(Fem|Mask|Hprof))).*Abs\+Sg\+UNA\b') | Inv(r'\+INNAQ') | Inv(r'\+(LI|LU)\b'), '\t@SUBJ>'),
 	sfx(C() | Grep(r'^(aallar|ajor|ilinniar|piareer|pikkorip|pizza.*TUR|whisky.*TUR).*Par\+3Sg') | Inv(r'\+(TUQ\+U|MIU|LIRI|INNAQ|PAK\+SUAQ\+QAR\+Sem/have\+LAAR)') | Inv(r'ilinniarnertuunngorniarfik|ilinniartitsisoq') | Inv(r'\+(LI|LU|UNA)\b'), '\t@PRED'),
 	])
 S.patterns.append([
-	sfx(C() | Grep(r'^(uanga).*Abs\+1Sg\+UNA\b') | Inv(r'\+INNAQ') | Inv(r'\+(LI|LU)\b'), '\t@SUBJ>'),
+	sfx(C() | Grep(r'^uanga.*Abs\+1Sg\+UNA\b') | Inv(r'\+INNAQ') | Inv(r'\+(LI|LU)\b'), '\t@SUBJ>'),
 	sfx(C() | Grep(r'^(aallar|ajor|ilinniar|piareer|pikkorip|pizza.*TUR|whisky.*TUR).*Par\+1Sg') | Inv(r'\+(TUQ\+U|MIU|LIRI|INNAQ|PAK\+SUAQ\+QAR\+Sem/have\+LAAR)') | Inv(r'ilinniarnertuunngorniarfik|ilinniartitsisoq') | Inv(r'\+(LI|LU|UNA)\b'), '\t@PRED'),
 	])
 
