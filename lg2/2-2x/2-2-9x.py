@@ -42,7 +42,7 @@ for sentence in S.sentences:
 
 for q in Qs:
 	# Human-readable debug print of generated sentences
-	q = ucfirst(' '.join([w[1] for w in q])) + '!'
+	q = ucfirst(' '.join([w[1] for w in q])) + '.'
 	print(f'{q}')
 
 write_qs(Qs)

@@ -21,7 +21,7 @@ QAs = []
 def qa(sentence):
 	global QAs
 	Q = []
-	A = []
+	A = [['', 'Naamik,']]
 	for w in sentence:
 		w = w.split('\t')
 		# Inverted logic, as we find +LAAR+NNGIT and turn it into the question
