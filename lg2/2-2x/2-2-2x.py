@@ -13,13 +13,13 @@ load_corpus('2-2x-corpus.txt')
 S.patterns.append([
 	['ippassaq+Adv\tippassaq'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*Lok') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'Sem/(Fem|Mask)\+.*Abs') | Inv(r'\+(LI|LU)\b'),
+	C() | Grep(r'Sem/(Fem|Mask)\+.*Abs') | Inv(r'\+NIQ') | Inv(r'\+(LI|LU)\b'),
 	C() | Grep(r'\+Int\+2Sg\+3SgO\t') | Grep(r'\+Sem/(socialize|teach|encounter|see)\+') | Grep(r'\+NNGIT') | Inv(r'\+(SSA|LI|LU)\b'),
 	])
 S.patterns.append([
 	['aqaguagu+Adv\taqaguagu', 'aqagu+Adv\taqagu', 'aasaru+Adv\taasaru'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*Lok') | Inv(r'\+(LI|LU)\b'),
-	C() | Grep(r'Sem/(Fem|Mask)\+.*Abs') | Inv(r'\+(LI|LU)\b'),
+	C() | Grep(r'Sem/(Fem|Mask)\+.*Abs') | Inv(r'\+NIQ') | Inv(r'\+(LI|LU)\b'),
 	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\+3SgO\t') | Grep(r'\+Sem/(socialize|teach|encounter|see)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|LI|LU)\b'),
 	])
 
