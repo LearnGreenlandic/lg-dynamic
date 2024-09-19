@@ -38,7 +38,7 @@ S.patterns.append([
 	sfx(C() | Grep(r'^(aasaru|aqagu|aqaguagu)\+') | Inv(r'\+(LI|LU|UNA)\b'), '\t@ADVL>'),
 	sfx(C() | Grep(r'Sem/(Geo|Fem|Mask).*Lok') | Inv(r'\+(LI|LU|UNA)\b'), '\t@ADVL>'),
 	sfx(C() | Grep(r'^qarasaasiaq.*Abs\+Sg') | Inv(r'\+(QAR|INNAQ|NIQ|LIRI|PAK)') | Inv(r'\+(LI|LU|UNA)\b'), '\t@OBJ>'),
-	sfx(C() | Grep(r'^(ator|sammisare).*Abs\+Sg') | Inv(r'NNGIT') | Inv(r'\+(LI|LU|UNA)\b'), '\t@CL-<CIT'),
+	sfx(C() | Grep(r'^(ator|sammisare).*SSA\+V\+Cont\+3SgO') | Inv(r'NNGIT') | Inv(r'\+(LI|LU|UNA)\b'), '\t@CL-<CIT'),
 	])
 
 cartesian()
