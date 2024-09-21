@@ -11,8 +11,8 @@ import shared as S
 load_corpus('2-2x-corpus.txt')
 
 S.patterns.append([
-	C() | Grep(r'Sem/Geo\+.*Lok\+Sg') | Inv(r'\+(LI|LU|UNA)\b'),
-	C() | Grep(r'^(nuliaq|anaana|ataata|ila|meeraq).*\+QAR\+Sem/have\+V\+Ind\+1Sg') | Inv(r'\+(INNAQ|PAK\+SUAQ)') | Inv(r'\+(LI|LU|UNA)\b'),
+	C() | Grep(r'Sem/Geo\+.*Lok') | Inv(r'\+MIU') | Inv(r'\+(LI|LU|UNA)\b'),
+	C() | Grep(r'^(nuliaq|anaana|ataata|ila|meeraq).*\+QAR\+Sem/have\+V.*Ind\+1Sg') | Inv(r'\+(INNAQ|PAK\+SUAQ)') | Inv(r'\+(LI|LU|UNA)\b'),
 	['.\t.'],
 	['LU\tLU'],
 	C() | Grep(r'^(nuup|aallar).*\+(SSA|TARIAQAR).*Ind\+1Sg') | Inv(r'\+(TAR|NNGIT|TUQ\+U)\+') | Inv(r'\+(LI|LU|UNA)\b'),
