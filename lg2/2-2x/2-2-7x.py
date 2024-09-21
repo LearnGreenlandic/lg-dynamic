@@ -11,7 +11,7 @@ import shared as S
 load_corpus('2-2x-corpus.txt')
 
 S.patterns.append([
-	C() | Grep(r'(Sem/(Fem|Mask).*Abs)|(Sem/Hfam\+N\+Abs.*1SgPoss)') | Inv(r'\+(QAR|INNAQ|NIQ|LIRI|PAK)\+') | Inv(r'\+(LI|LU|UNA)\b'),
+	C() | Grep(r'(Sem/(Fem|Mask).*Abs)') | Inv(r'\+(QAR|INNAQ|NIQ|LIRI|PAK)\+') | Inv(r'\+(LI|LU|UNA)\b'),
 	C() | Grep(r'^(asa|ilinniartip|naapip|sammisare|taku).*\+LAAR\+NNGIT\+.*1Sg\+3SgO') | Inv(r'\+(LI|LU|UNA)\b'),
 	])
 
