@@ -22,7 +22,7 @@ S.patterns.append([
 	sfx(C() | Grep(r'(Sem/(Fem|Mask).*Abs)|(Sem/Hfam\+N\+Abs.*1SgPoss)') | Inv(r'\+(QAR|INNAQ|NIQ|LIRI|PAK)') | Inv(r'\+(LI|LU|UNA)\b'), '\t@SUBJ>'),
 	sfx(C() | Grep(r'^(aasaru|aqagu|aqaguagu)\+') | Inv(r'\+(LI|LU|UNA)\b'), '\t@ADVL>'),
 	sfx(C() | Grep(r'Sem/Geo.*(Trm|Abl)') | Inv(r'\+(LI|LU|UNA)\b'), '\t@ADVL>'),
-	sfx(C() | Grep(r'^(aallar|tikip).*SSA\+V\+Cont\+1Sg') | Inv(r'\+(NNGIT|TUQ\+U|TAR)\+') | Inv(r'\+(LI|LU|UNA)\b'), '\t@CL-<CIT'),
+	sfx(C() | Grep(r'^(aallar|tikip).*SSA\+V\+Par\+3Sg') | Inv(r'\+(NNGIT|TUQ\+U|TAR)\+') | Inv(r'\+(LI|LU|UNA)\b'), '\t@CL-<CIT'),
 	])
 
 cartesian()
