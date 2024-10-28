@@ -52,6 +52,15 @@ class C:
 def ucfirst(s):
 	return s[0].upper() + s[1:]
 
+def _trim_ucfirst(s):
+	return s.group(1) + ' ' + ucfirst(s.group(2))
+
+def trim_ucfirst(s):
+	s = re.sub(r' ([.?!:]) ([^.])', _trim_ucfirst, s)
+	s = re.sub(r'( ⇒) ([^.])', _trim_ucfirst, s)
+	s = re.sub(r' ([.?!:,;])', r'\1', s)
+	return ucfirst(s)
+
 def load_corpus(fn):
 	global corpus, corpus_kv
 	seen = set()
@@ -120,7 +129,10 @@ def write_qas(QAs):
 	con = sqlite3.connect(f'{name}.sqlite.new')
 	db = con.cursor()
 	for qa in QAs:
-		db.execute("INSERT INTO qas (qa_q, qa_a) VALUES (?, ?)", [json.dumps(qa[0]), json.dumps(qa[1])])
+		if len(qa) <= 2:
+			db.execute("INSERT INTO qas (qa_q, qa_a) VALUES (?, ?)", [json.dumps(qa[0]), json.dumps(qa[1])])
+		else:
+			db.execute("INSERT INTO qas (qa_q, qa_a, qa_q_txt, qa_a_txt) VALUES (?, ?, ?, ?)", [json.dumps(qa[0]), json.dumps(qa[1]), qa[2], qa[3]])
 	con.commit()
 
 	os.rename(f'{name}.sqlite.new', f'{name}.sqlite')
@@ -131,7 +143,10 @@ def write_qs(Qs):
 	con = sqlite3.connect(f'{name}.sqlite.new')
 	db = con.cursor()
 	for q in Qs:
-		db.execute("INSERT INTO qs (q) VALUES (?)", [json.dumps(q)])
+		if len(q) <= 1:
+			db.execute("INSERT INTO qs (q) VALUES (?)", [json.dumps(q)])
+		else:
+			db.execute("INSERT INTO qs (q, q_txt) VALUES (?, ?)", [json.dumps(q[0]), q[1]])
 	con.commit()
 
 	db.execute("VACUUM")

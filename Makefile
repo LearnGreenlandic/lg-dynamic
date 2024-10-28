@@ -1,6 +1,7 @@
 DIRS = \
 	lg2/2-1x \
-	lg2/2-2x
+	lg2/2-2x \
+	lg2/2-3x
 CLEANDIRS = $(DIRS:%=clean-%)
 
 all: $(DIRS)
