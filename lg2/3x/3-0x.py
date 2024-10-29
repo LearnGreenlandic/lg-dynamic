@@ -8,7 +8,7 @@ sys.path.append(dir + '/../../_lib')
 from shared import *
 import shared as S
 
-load_corpus('2-3x-corpus.txt')
+load_corpus('3x-corpus.txt')
 
 S.patterns.append([
 	sfx(C() | Grep(r'^uanga\+Pron\+Abs\+1Sg'), '\t@SUBJ>'),
@@ -47,4 +47,4 @@ for sentence in S.sentences:
 for q in Qs:
 	print(f'{q[1]}')
 
-write_qs(Qs)
+write_qs(Qs, txt=True)

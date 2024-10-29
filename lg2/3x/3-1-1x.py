@@ -8,7 +8,7 @@ sys.path.append(dir + '/../../_lib')
 from shared import *
 import shared as S
 
-load_corpus('2-3x-corpus.txt')
+load_corpus('3x-corpus.txt')
 
 S.patterns.append([
 	sfx(C() | Grep(r'Sem/Fem.*Ins'), '\t@i->N'),
@@ -94,4 +94,4 @@ for sentence in S.sentences:
 for qa in QAs:
 	print(f'{qa[2]} ⇒ {qa[3]}')
 
-write_qas(QAs)
+write_qas(QAs, txt=True)

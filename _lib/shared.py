@@ -123,13 +123,13 @@ def cartesian(n=10000):
 	random.shuffle(sentences)
 	sentences = sentences[0:n]
 
-def write_qas(QAs):
+def write_qas(QAs, txt=False):
 	subprocess.run(['rm', '-f', f'{name}.sqlite.new'])
 	subprocess.run(['sqlite3', f'{name}.sqlite.new', '-init', f'{dir}/schema.sql'], input='', stdout=subprocess.PIPE)
 	con = sqlite3.connect(f'{name}.sqlite.new')
 	db = con.cursor()
 	for qa in QAs:
-		if len(qa) <= 2:
+		if not txt:
 			db.execute("INSERT INTO qas (qa_q, qa_a) VALUES (?, ?)", [json.dumps(qa[0]), json.dumps(qa[1])])
 		else:
 			db.execute("INSERT INTO qas (qa_q, qa_a, qa_q_txt, qa_a_txt) VALUES (?, ?, ?, ?)", [json.dumps(qa[0]), json.dumps(qa[1]), qa[2], qa[3]])
@@ -137,13 +137,13 @@ def write_qas(QAs):
 
 	os.rename(f'{name}.sqlite.new', f'{name}.sqlite')
 
-def write_qs(Qs):
+def write_qs(Qs, txt=False):
 	subprocess.run(['rm', '-f', f'{name}.sqlite.new'])
 	subprocess.run(['sqlite3', f'{name}.sqlite.new', '-init', f'{dir}/schema.sql'], input='', stdout=subprocess.PIPE)
 	con = sqlite3.connect(f'{name}.sqlite.new')
 	db = con.cursor()
 	for q in Qs:
-		if len(q) <= 1:
+		if not txt:
 			db.execute("INSERT INTO qs (q) VALUES (?)", [json.dumps(q)])
 		else:
 			db.execute("INSERT INTO qs (q, q_txt) VALUES (?, ?)", [json.dumps(q[0]), q[1]])
