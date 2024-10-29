@@ -53,7 +53,10 @@ def qa(sentence):
 				return
 			w[1] = S.corpus_kv[w[0]]
 		elif w[0] == 'P2':
-			w = sentence[2].split('\t')
+			w[0] = sentence[2].split('\t')[0].replace('+1Pl', '+1Sg')
+			if w[0] not in S.corpus_kv:
+				return
+			w[1] = S.corpus_kv[w[0]]
 		elif w[0] == 'P3':
 			w[0] = sentence[2].split('\t')[0].replace('+QAR+Sem/have+V+Ind+1Sg', '+N+Abs+Sg+1SgPoss')
 			if w[0] not in S.corpus_kv:
