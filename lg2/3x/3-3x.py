@@ -12,7 +12,7 @@ load_corpus('3x-corpus.txt')
 
 S.patterns.append([
 	['ippassaq+Adv\tippassaq\t@CL-ADVL>'],
-	sfx(C() | Grep(r'Sem/(Mask|Fem|Hnat).*Abs\+Sg|Sem/Hfam\+N\+Abs\+Sg\+1SgPoss') | Inv(r'INNAQ|TUQ|NIQ') | Inv(r'Hnat.*Poss'), '\t@OBJ>'),
+	sfx(C() | Grep(r'Sem/(Mask|Fem|Hnat).*Abs\+Sg') | Inv(r'INNAQ|TUQ|NIQ') | Inv(r'Hnat.*Poss'), '\t@OBJ>'),
 	sfx(C() | Grep(r'Sem/(Geo|inst).*(N|Prop)\+Lok\+Sg') | Inv(r'IP|INNAQ|N\+Lok\+Sg\+3PlPoss'), '\t@ADVL>'),
 	sfx(C() | Grep(r'^(asa\+Sem/socialize|ilinniartip\+Sem/teach|naapip\+Sem/encounter|taa\+Sem/name|taku\+Sem/see).*\+Int\+2Sg\+3SgO') | Inv(r'TAR|SSA|NNGIT'), '\t@ADVL>'),
 	['?\t?\t@CLB'],
@@ -34,7 +34,7 @@ S.patterns.append([
 	])
 S.patterns.append([
 	['ippassaq+Adv\tippassaq\t@CL-ADVL>'],
-	sfx(C() | Grep(r'Sem/(Mask|Fem|Hnat).*Abs\+Sg|Sem/Hfam\+N\+Abs\+Sg\+1SgPoss') | Inv(r'INNAQ|TUQ|NIQ') | Inv(r'Hnat.*Poss'), '\t@OBJ>'),
+	sfx(C() | Grep(r'Sem/(Mask|Fem|Hnat).*Abs\+Sg') | Inv(r'INNAQ|TUQ|NIQ') | Inv(r'Hnat.*Poss'), '\t@OBJ>'),
 	sfx(C() | Grep(r'Sem/(Geo|inst).*(N|Prop)\+Lok\+Sg') | Inv(r'IP|INNAQ|N\+Lok\+Sg\+3PlPoss'), '\t@ADVL>'),
 	sfx(C() | Grep(r'^(asa\+Sem/socialize|ilinniartip\+Sem/teach|naapip\+Sem/encounter|taa\+Sem/name|taku\+Sem/see).*\+NNGIT\+V\+Int\+2Sg\+3SgO') | Inv(r'TAR|SSA'), '\t@ADVL>'),
 	['?\t?\t@CLB'],
