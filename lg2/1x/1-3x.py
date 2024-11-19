@@ -8,7 +8,7 @@ sys.path.append(dir + '/../../_lib')
 from shared import *
 import shared as S
 
-load_corpus('2-2x-corpus.txt')
+load_corpus('1x-corpus.txt')
 
 S.patterns.append([
 	['ippassaq+Adv\tippassaq'],
@@ -16,7 +16,7 @@ S.patterns.append([
 	C() | Grep(r'\+Int\+2Sg\t') | Grep(r'\+Sem/(be_attribute|learn|lodge|refuse|work|speak_emot)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|SSA|LI|LU)\b'),
 	])
 S.patterns.append([
-	['aqaguagu+Adv\taqaguagu', 'aqagu+Adv\taqagu', 'aasaru+Adv\taasaru'],
+	['aqaguagu+Adv\taqaguagu'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*Lok') | Inv(r'\+(LI|LU)\b'),
 	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\t') | Grep(r'\+Sem/(be_attribute|learn|lodge|refuse|work|speak_emot)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|LI|LU)\b'),
 	])
@@ -26,7 +26,7 @@ S.patterns.append([
 	C() | Grep(r'\+Int\+2Sg\t') | Grep(r'\+Sem/(run|reach)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|SSA|LI|LU)\b'),
 	])
 S.patterns.append([
-	['aqaguagu+Adv\taqaguagu', 'aqagu+Adv\taqagu', 'aasaru+Adv\taasaru'],
+	['aqaguagu+Adv\taqaguagu'],
 	C() | Grep(r'Sem/(Geo|inst)\+.*(Abl|Trm)') | Inv(r'\+(LI|LU)\b'),
 	C() | Grep(r'\+SSA\b.*\+Ind\+1Sg\t') | Grep(r'\+Sem/(run|reach)\+') | Grep(r'\+NNGIT') | Inv(r'\+(GALUAR|LI|LU)\b'),
 	])
@@ -41,8 +41,8 @@ def qa(sentence):
 	inv = False
 	for w in sentence:
 		w = w.split('\t')
-		# If the question starts with "aqaguagu", "aqagu", or "aasaru", it's actually the answer, since it's otherwise impossible to know where +NNGIT goes. So invert question and answer logic.
-		if w[1] == 'aqaguagu' or w[1] == 'aqagu' or w[1] == 'aasaru':
+		# If the question starts with "aqaguagu", it's actually the answer, since it's otherwise impossible to know where +NNGIT goes. So invert question and answer logic.
+		if w[1] == 'aqaguagu':
 			inv = True
 		if '+NNGIT+' in w[0] and inv:
 			q0 = w[0].replace('+NNGIT+', '+').replace('+Ind+1Sg', '+Int+2Sg')

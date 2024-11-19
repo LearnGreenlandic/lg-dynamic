@@ -8,11 +8,11 @@ sys.path.append(dir + '/../../_lib')
 from shared import *
 import shared as S
 
-load_corpus('2-2x-corpus.txt')
+load_corpus('2x-corpus.txt')
 
 S.patterns.append([
-	C() | Grep(r'(Sem/(Fem|Mask).*Abs)') | Inv(r'\+(QAR|INNAQ|NIQ|LIRI|PAK)\+') | Inv(r'\+(LI|LU|UNA)\b'),
-	C() | Grep(r'^(asa|ilinniartip|naapip|sammisare|taku).*\+LAAR\+NNGIT\+.*1Sg\+3SgO') | Inv(r'\+(LI|LU|UNA)\b'),
+	C() | Grep(r'(Sem/(Fem|Mask).*Abs)|(Sem/Hfam\+N\+Abs.*1SgPoss)') | Inv(r'\+(QAR|INNAQ|NIQ|LIRI|PAK)\+') | Inv(r'\+(LI|LU|UNA)\b'),
+	C() | Grep(r'^(asa|ilinniartip|naapip|sammisare|taku).*\+LAAR\+.*1Sg\+3SgO') | Inv(r'NNGIT') | Inv(r'\+(LI|LU|UNA)\b'),
 	])
 
 cartesian()
@@ -21,12 +21,12 @@ QAs = []
 def qa(sentence):
 	global QAs
 	Q = []
-	A = [['', 'Naamik,']]
+	A = []
 	for w in sentence:
 		w = w.split('\t')
-		# Inverted logic, as we find +LAAR+NNGIT and turn it into the question
+		# Inverted logic, as we find +LAAR and turn it into the question
 		A.append(w)
-		w[0] = w[0].replace('+LAAR+NNGIT+', '+').replace('+Ind+1Sg+3SgO', '+Int+2Sg+3SgO')
+		w[0] = w[0].replace('+LAAR+', '+').replace('+Ind+1Sg+3SgO', '+Int+2Sg+3SgO')
 		if w[0] not in S.corpus_kv:
 			return
 		Q.append([w[0], S.corpus_kv[w[0]]])

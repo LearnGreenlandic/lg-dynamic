@@ -8,7 +8,7 @@ sys.path.append(dir + '/../../_lib')
 from shared import *
 import shared as S
 
-load_corpus('2-1x-corpus.txt')
+load_corpus('1x-corpus.txt')
 
 S.patterns.append([
 	C() | Grep(r'Sem/(inst|Geo).*Lok') | Inv(r'\+(MIU|LI|LU)\b'),
