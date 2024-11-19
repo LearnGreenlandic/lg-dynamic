@@ -8,7 +8,7 @@ sys.path.append(dir + '/../../_lib')
 from shared import *
 import shared as S
 
-load_corpus('2-2x-corpus.txt')
+load_corpus('2x-corpus.txt')
 
 S.patterns.append([
 	sfx(C() | Grep(r'(Sem/think.*Ind\+1Sg)|(^nalu.*NNGIT.*Ind\+1Sg\+3SgO)|(^eqqaama.*1Sg\+3SgO)') | Inv(r'(TUQ\+U)|(GUSUP.*TAR\+)') | Inv(r'\+(LI|LU|UNA)\b'), '\t@PRED'),
