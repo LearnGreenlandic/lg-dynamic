@@ -51,7 +51,7 @@ def qa(sentence):
 
 		w = w.split('\t')
 		if w[0] == 'P1':
-			w = sentence[0]
+			w = sentence[0].split('\t')
 		elif w[0] == 'P2':
 			w[0] = sentence[1].split('\t')[0].replace('+V+Int+2Sg+3SgO', '+V+Ind+1Sg+3SgO')
 			if w[0] not in S.corpus_kv:

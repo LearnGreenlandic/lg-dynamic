@@ -59,13 +59,13 @@ def qa(sentence):
 
 		w = w.split('\t')
 		if w[0] == 'P1':
-			w = sentence[0]
+			w = sentence[0].split('\t')
 		elif w[0] == 'P2':
-			w = sentence[1]
+			w = sentence[1].split('\t')
 		elif w[0] == 'P3':
-			w = sentence[2]
+			w = sentence[2].split('\t')
 		elif w[0] == 'P4':
-			w = sentence[3]
+			w = sentence[3].split('\t')
 
 		if not in_a:
 			Q.append(w)
