@@ -24,7 +24,7 @@ S.patterns.append([
 	['.\t.\t@CLB'],
 	])
 S.patterns.append([
-	sfx(C() | Grep(r'Sem/Fem.*Mask\+Sg') | Inv(r'NIQ'), '\t@OBJ>'),
+	sfx(C() | Grep(r'Sem/Mask.*Abs\+Sg') | Inv(r'NIQ'), '\t@OBJ>'),
 	sfx(C() | Grep(r'^(ui\+|ataata\+|qatanngut\+|ani\+|aqqalu\+|nuka\+|angaju\+).*GE\+Sem/have\+V\+Int\+2Sg\+3SgO') | Inv(r'INNAQ|PAK'), '\t@PRED'),
 	['?\t?\t@CLB'],
 
