@@ -15,7 +15,7 @@ S.patterns.append([
 	sfx(C() | Grep(r'\+Pron\+Rel\+1Sg'), '\t@SUBJ>'),
 	sfx(C() | Grep(r'Abs\+2Pl\s'), '\t@OBJ>'),
 	sfx(C() | Grep(r'Sem/(Geo|inst|Lh).*Lok\+Sg') | Inv(r'IP|INNAQ|najugaq') | Inv(r'Sem/(Lh|inst).*3PlPoss'), '\t@ADVL>'),
-	sfx(C() | Grep(r'(SSA|NIAR)+.*1Sg\+2PlO\s'), '\t@PRED'),
+	sfx(C() | Grep(r'(SSA|NIAR)+.*1Sg\+2PlO\s') | Inv(r'(GE|TAR)'), '\t@PRED'),
 	['.\t.\t@CLB'],
 	])
 S.patterns.append([
