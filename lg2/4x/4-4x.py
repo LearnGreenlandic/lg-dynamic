@@ -25,7 +25,7 @@ S.patterns.append([
 S.patterns.append([
 	sfx(C() | Grep(r'Sem/Mask.*Prop\+Rel\+Sg'), '\t@SUBJ>'),
 	sfx(C() | Grep(r'Sem/Fem.*Abs\+Sg') | Inv(r'\+(IP|NIQ|U)'), '\t@OBJ>'),
-	sfx(C() | Grep(r'^(angaju|qatanngut|nuliaq|aleqa|naja|anaana)\+Sem/Hfam\+GE\+Sem/have\+V\+Ind\+3Sg\+3SgO'), '\t@PRED'),
+	sfx(C() | Grep(r'^(qatanngut|nuliaq|aleqa|naja|anaana)\+Sem/Hfam\+GE\+Sem/have\+V\+Ind\+3Sg\+3SgO'), '\t@PRED'),
 	['.\t.\t@CLB'],
 
 	['⇒'],
