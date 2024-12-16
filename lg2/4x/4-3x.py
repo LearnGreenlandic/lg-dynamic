@@ -19,7 +19,7 @@ S.patterns.append([
 
 	['⇒'],
 
-	['Aap\taap\t@INTERJ'],
+	['aap\taap\t@INTERJ'],
 	[',\t,\t@COMMA'],
 	['P1\tP1\t@SUBJ>'],
 	['P2\tP2\t@OBJ>'],
@@ -36,7 +36,7 @@ S.patterns.append([
 
 	['⇒'],
 
-	['Aap\taap\t@INTERJ'],
+	['aap\taap\t@INTERJ'],
 	[',\t,\t@COMMA'],
 	['P1\tP1\t@SUBJ>'],
 	['P2\tP2\t@OBJ>'],
