@@ -17,7 +17,7 @@ S.patterns.append([
 
 	['⇒'],
 
-	['Naamik\tnaamik\t@INTERJ'],
+	['naamik\tnaamik\t@INTERJ'],
 	[',\t,\t@COMMA'],
 	['P1\tP1\t@OBJ>'],
 	['P2\tP2\t@PRED'],
@@ -30,7 +30,7 @@ S.patterns.append([
 
 	['⇒'],
 
-	['Naamik\tnaamik\t@INTERJ'],
+	['naamik\tnaamik\t@INTERJ'],
 	[',\t,\t@COMMA'],
 	['P1\tP1\t@OBJ>'],
 	['P2\tP2\t@PRED'],
