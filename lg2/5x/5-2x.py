@@ -27,7 +27,7 @@ S.patterns.append([
 	sfx(C() | Grep(r'(aappaagu|aasaru|aqagu|aqaguagu|ullumi)\+Adv'), '\t@CL-ADVL>'),
 	['P3\tP3\t@SUBJ>'],
 	['P4\tP4\t@ADVL>'],
-	sfx(C() | Grep(r'^(aallartip|allap|ator|naammassi|paasi|sammisare).*GIARTUR\+SSA\+V\+Ind\+1Sg\+3'), '\tP5'),
+	sfx(C() | Grep(r'^(aallartip|allap|ator|naammassi|paasi|sammisare).*GIARTUR\+SSA\+V\+Ind\+3Sg\+3'), '\tP5'),
 	['.\t.\t@CLB'],
 	])
 S.patterns.append([
@@ -38,7 +38,7 @@ S.patterns.append([
 	sfx(C() | Grep(r'(aappaagu|aasaru|aqagu|aqaguagu|ullumi)\+Adv'), '\t@CL-ADVL>'),
 	['P3\tP3\t@SUBJ>'],
 	['P4\tP4\t@ADVL>'],
-	sfx(C() | Grep(r'^(aallartip|allap|ator|naammassi|paasi|sammisare).*GIARTUR\+SSA\+V\+Ind\+1Sg\+3'), '\tP5'),
+	sfx(C() | Grep(r'^(aallartip|allap|ator|naammassi|paasi|sammisare).*GIARTUR\+SSA\+V\+Ind\+3Sg\+3'), '\tP5'),
 	['.\t.\t@CLB'],
 	])
 
