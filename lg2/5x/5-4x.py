@@ -28,7 +28,7 @@ S.patterns.append([
 S.patterns.append([
 	sfx(C() | Grep(r'Sem/Hfam\+N\+Abs\+Sg\+1SgPoss'), '\t@OBJ>'),
 	sfx(C() | Grep(r'Sem/(Geo|inst\+Sem/Hum).*\+Lok') | Inv(r'\+IP'), '\t@ADVL>'),
-	sfx(C() | Grep(r'Sem/(teach|socialize|encounter|see).*SSA\+V\+\Ind\+1Sg\+3SgO'), '\t@PRED'),
+	sfx(C() | Grep(r'Sem/(teach|socialize|encounter|see).*SSA\+V\+Ind\+1Sg\+3SgO'), '\t@PRED'),
 	['.\t.\t@CLB'],
 	['P5\tP5\t@PRED'],
 	['.\t.\t@CLB'],
