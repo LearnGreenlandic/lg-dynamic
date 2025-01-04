@@ -9,7 +9,6 @@ from shared import *
 import shared as S
 
 load_corpus('5x-corpus.txt')
-'''
 S.patterns.append([
 	sfx(C() | Grep(r'Sem/(Geo|inst\+Sem/Hum).*\+Lok') | Inv(r'\+IP'), '\t@ADVL>'),
 	sfx(C() | Grep(r'Sem/(teach|socialize|use|complete_process|encounter|know|work|mind|see)\+TAQ.*QAR\+V\+Ind\+1Sg') | Inv(r'(LIR|QQAAR|know\+TAQ\+SSAQ|socialize\+TAQ\+SSAQ)'), '\t@PRED'),
@@ -24,7 +23,6 @@ S.patterns.append([
 	['P4\tP4\t@PRED'],
 	['.\t.\t@CLB'],
 	])
-'''
 S.patterns.append([
 	sfx(C() | Grep(r'Sem/Hfam\+N\+Abs\+Sg\+1SgPoss'), '\t@OBJ>'),
 	sfx(C() | Grep(r'Sem/(Geo|inst\+Sem/Hum).*\+Lok') | Inv(r'\+IP'), '\t@ADVL>'),
