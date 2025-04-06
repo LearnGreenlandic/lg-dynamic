@@ -114,7 +114,7 @@ def cartesian(n=10000):
 		ss = []
 		for s in itertools.product(*patterns[i]):
 			ss.append(s)
-			if (len(ss) >= 100000):
+			if (len(ss) >= 10000000):
 				break
 		random.seed(seed)
 		random.shuffle(ss)
