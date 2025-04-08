@@ -14,7 +14,7 @@ S.patterns.append([
 	sfx(C() | Grep(r'(ippassaq|taamani|ullumi$)') | Inv(r'Sem/dur'), '\t@CL-ADVL>'),
 	sfx(C() | Grep(r'Sem/Hfam.*Abs\+Sg\+1SgPoss') | Inv(r'(NIQ|INNAQ|SSAQ)'), '\t@OBJ>'),
 	sfx(C() | Grep(r'/(Geo|inst)\+Prop\+Lok') | Inv(r'IP'), '\t@ADVL>'),
-	sfx(C() | Grep(r'/(allow|comprehend|cross|encounter|leave|listen|remember|say|see|socialize|teach).*Int\+2Sg\+3SgO') | Inv(r'(TAR|NNGIT|SSA)'), '\t@ADVL>'),
+	sfx(C() | Grep(r'/(allow|comprehend|cross|encounter|leave|listen|remember|say|see|socialize|teach).*Int\+2Sg\+3SgO') | Inv(r'(TAR|NNGIT|SSA|TAQ)'), '\t@ADVL>'),
 	['?\t?\t@CLB'],
 
 	['⇒'],
