@@ -2,7 +2,7 @@ all: \
 	$(patsubst %.py,%.sqlite,$(wildcard *.py)) \
 	$(patsubst %.py,%.log,$(wildcard *.py))
 
-%.sqlite %.log: %.py 2x-corpus.txt
+%.sqlite %.log: %.py 2x-corpus.txt.zst
 	./$< >"$*.log"
 
 clean:

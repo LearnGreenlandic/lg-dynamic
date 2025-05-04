@@ -7,6 +7,7 @@ import regex as re
 import sqlite3
 import subprocess
 import sys
+import zstd
 from pathlib import Path
 
 dir = os.path.dirname(os.path.abspath(__file__))
@@ -66,7 +67,12 @@ def load_corpus(fn):
 	seen = set()
 	corpus = []
 	corpus_kv = {}
-	ls = Path(fn).read_text()
+	if Path(fn + '.zst').exists():
+		ls = Path(fn + '.zst').read_bytes()
+		ls = zstd.decompress(ls)
+		ls = ls.decode('utf-8')
+	else:
+		ls = Path(fn).read_text()
 	ls = re.sub(r'\s*#[^\n]+', '', ls)
 	ls = ls.strip().splitlines()
 	for l in ls:

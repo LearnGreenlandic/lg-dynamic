@@ -18,6 +18,7 @@ dev: all
 	rsync -avz lg2/4x/*.sqlite kal@learn.gl:public_html/online-dev/d/lg2/sentence/4x/
 	rsync -avz lg2/5x/*.sqlite kal@learn.gl:public_html/online-dev/d/lg2/sentence/5x/
 	rsync -avz lg2/6x/*.sqlite kal@learn.gl:public_html/online-dev/d/lg2/sentence/6x/
+	rsync -avz lg2/7x/*.sqlite kal@learn.gl:public_html/online-dev/d/lg2/sentence/7x/
 
 release: all
 	rsync -avz lg2/1x/*.sqlite kal@learn.gl:public_html/online/d/lg2/sentence/1x/
@@ -26,6 +27,7 @@ release: all
 	rsync -avz lg2/4x/*.sqlite kal@learn.gl:public_html/online/d/lg2/sentence/4x/
 	rsync -avz lg2/5x/*.sqlite kal@learn.gl:public_html/online/d/lg2/sentence/5x/
 	rsync -avz lg2/6x/*.sqlite kal@learn.gl:public_html/online/d/lg2/sentence/6x/
+	rsync -avz lg2/7x/*.sqlite kal@learn.gl:public_html/online/d/lg2/sentence/7x/
 
 .PHONY: subdirs $(DIRS)
 .PHONY: subdirs $(CLEANDIRS)
