@@ -12,7 +12,7 @@ load_corpus('7x-corpus.txt')
 
 S.patterns.append([
 	sfx(C() | Grep(r'(ippassaq|taamani|ullumi$)') | Inv(r'Lok'), '\t@CL-ADVL>'),
-	sfx(C() | Grep(r'Sem/(Fem|Mask).*Abs\+Sg'), '\t@OBJ>'),
+	sfx(C() | Grep(r'Sem/(Fem|Mask|Hprof)\+(N|Prop)\+Abs\+Sg') | Inv(r'(Poss|ikiorti)'), '\t@OBJ>'),
 	sfx(C() | Grep(r'Sem/(inst|Geo).*Lok') | Inv(r'(IP|KKUT|LIR\+TAQ|SSAQ|PAK|INNAQ|meeqqerivik.*Poss|ilinniarnertuunngorniarfik.*Poss)'), '\t@ADVL>'),
 	sfx(C() | Grep(r'^(aallar.*QQU|akuere|socialize|ataasinnguaq.*TUR\+QQU|avip|eqqaama|eqqarsatigǝ|ikiortә.*GE|ilagǝ|ilinniartip|malip|naapip|oqarfigǝ|paarǝ|paasi|pizza.*TUR\+QQU|qimap|sammisare|soqutige|taa$|taku|tusar|tutsiuteqqip.*QQU).*Ind\+1Sg\+3SgO') | Inv(r'(LIR\+QQU|TAR|NIQAR|SSA|GIARTUR|INNAQ|PAK)'), '\t@PRED'),
 	['.\t.\t@CLB'],
