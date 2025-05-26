@@ -37,7 +37,7 @@ S.patterns.append([
 	])
 S.patterns.append([
 	sfx(C() | Grep(r'(aappaagu|aasaru|aqagu|aqaguagu|erniinnaq|ullumi$)') | Inv(r'Lok'), '\t@CL-ADVL>'),
-	sfx(C() | Grep(r'Sem/(Fem|Mask)\+KKUT\+Prop\+Rel\+Sg'), '\t@SUBJ>'),
+	sfx(C() | Grep(r'Sem/(Fem|Mask)\+KKUT\+Prop\+Rel\+Pl'), '\t@SUBJ>'),
 	sfx(C() | Grep(r'(qallunaaq|kalaaleq|MIU).*\+Rel\+Pl') | Inv(r'(Poss|QAR|SSAQ|LIR|PAK)'), '\t@POSS>'),
 	sfx(C() | Grep(r'Sem/(H|socialize\+TAQ|think\+TAQ|teach\+TAQ).*N\+Abs\+Pl\+3PlPoss') | Inv(r'(NIQ|LIR\+TAQ|INNAQ|SSAQ|alla|eqqumiitsuliortoq|ilinniarnertooq|tusagassiortoq|sakkutooq|kalaaleq|qallunaaq|oqaasilerisoq|nukarleq|kingulleq|inersimasoq|inuusuttoq|ilinniartoq|nuliaq|ui|aappaq|PAK|kunngi|ataata|anaana)'), '\t@OBJ>'),
 	sfx(C() | Grep(r'Sem/(inst|Geo).*Lok') | Inv(r'(IP|KKUT|LIR\+TAQ|SSAQ|PAK|INNAQ|meeqqerivik.*Poss|ilinniarnertuunngorniarfik.*Poss)'), '\t@ADVL>'),
