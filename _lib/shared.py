@@ -50,6 +50,30 @@ class C:
 	def __iter__(self):
 		return self.c.__iter__()
 
+# From https://stackoverflow.com/a/71331746
+class RandomProduct:
+	def __init__(self, iterables):
+		self.its = list(map(list, iterables))
+		self.n = math.prod(map(len, self.its))
+
+	def index(self, i):
+		if i not in range(self.n):
+			raise ValueError(f"index {i} not in range({self.n})")
+		result = []
+		for it in reversed(self.its):
+			i, r = divmod(i, len(it))
+			result.append(it[r])
+		return tuple(reversed(result))
+
+	def pickran(self):
+		return self.index(random.randrange(self.n))
+
+	def sample(self, k = 100000):
+		rv = []
+		for i in random.sample(range(self.n), min(k, self.n)):
+			rv.append(self.index(i))
+		return rv
+
 def ucfirst(s):
 	return s[0].upper() + s[1:]
 
@@ -117,11 +141,8 @@ def cartesian(n=10000):
 			patterns[i][j] = list(patterns[i][j])
 			random.seed(seed)
 			random.shuffle(patterns[i][j])
-		ss = []
-		for s in itertools.product(*patterns[i]):
-			ss.append(s)
-			if (len(ss) >= 10000000):
-				break
+		rp = RandomProduct(patterns[i])
+		ss = rp.sample(100000)
 		random.seed(seed)
 		random.shuffle(ss)
 		sentences.extend(ss[0:math.ceil(n/len(patterns))])
@@ -140,6 +161,7 @@ def write_qas(QAs, txt=False):
 		else:
 			db.execute("INSERT INTO qas (qa_q, qa_a, qa_q_txt, qa_a_txt) VALUES (?, ?, ?, ?)", [json.dumps(qa[0]), json.dumps(qa[1]), qa[2], qa[3]])
 	con.commit()
+	con.close()
 
 	os.rename(f'{name}.sqlite.new', f'{name}.sqlite')
 
@@ -157,5 +179,6 @@ def write_qs(Qs, txt=False):
 
 	db.execute("VACUUM")
 	con.commit()
+	con.close()
 
 	os.rename(f'{name}.sqlite.new', f'{name}.sqlite')

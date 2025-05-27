@@ -5,11 +5,11 @@ CLEANDIRS = $(DIRS:%=clean-%)
 all: $(DIRS)
 
 $(DIRS):
-	$(MAKE) -j -C $@
+	$(MAKE) -j2 -C $@
 
 clean: $(CLEANDIRS)
 $(CLEANDIRS):
-	$(MAKE) -j -C $(@:clean-%=%) clean
+	$(MAKE) -j2 -C $(@:clean-%=%) clean
 
 dev: all
 	rsync -avz lg2/1x/*.sqlite kal@learn.gl:public_html/online-dev/d/lg2/sentence/1x/
