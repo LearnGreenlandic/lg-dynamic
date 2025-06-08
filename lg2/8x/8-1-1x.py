@@ -13,7 +13,7 @@ load_corpus('8x-corpus.txt')
 S.patterns.append([
 	sfx(C() | Grep(r'Sem/(Hfam|Hprof)(\+KU)?\+N\+Abs\+Sg\+1SgPoss\s') | Inv(r'(angajoqqaaq|ilinniarnertooq|ilinniartoq|oqaasilerisoq|sakkutooq|tusagassiortoq|eqqumiitsuliortoq)'), '\t@SUBJ>'),
 	sfx(C() | Grep(r'Sem/Geo\+Prop\+Lok\+(Sg|Pl)\s'), '\t@ADVL>'),
-	sfx(C() | Grep(r'Sem/(learn|work)(\+LIR)?\+V\+Ind\+3Pl\s'), '\t@PRED'),
+	sfx(C() | Grep(r'Sem/(learn|work)(\+LIR)?\+V\+Ind\+3Sg\s'), '\t@PRED'),
 	['.\t.\t@CLB'],
 	sfx(C() | Grep(r'Sem/(require|socialize|teach|chase|encounter|serve)\+(SSA|NIAR\+Sem/plan)\+V\+Cau\+1Sg\+3SgO') | Inv(r'^asa'), '\t@CAU>'),
 	sfx(C() | Grep(r'^(aappaagu|aasaru|aqagu|aqaguagu|erniinnaq|ullumi)'), '\t@ADVL>'),
