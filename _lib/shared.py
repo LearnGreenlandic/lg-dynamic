@@ -45,6 +45,8 @@ class C:
 			self.c = [i for i in self.c if not re.search(o.rx, i)]
 		elif isinstance(o, Lit):
 			self.c = o.ws
+		if len(self.c) == 0:
+			print(f'ERROR: Pattern has no hits: {o.rx}\n', file=sys.stderr)
 		return self
 
 	def __iter__(self):
