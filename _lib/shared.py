@@ -159,9 +159,9 @@ def write_qas(QAs, txt=False):
 	db = con.cursor()
 	for qa in QAs:
 		if not txt:
-			db.execute("INSERT INTO qas (qa_q, qa_a) VALUES (?, ?)", [json.dumps(qa[0]), json.dumps(qa[1])])
+			db.execute("INSERT INTO qas (qa_q, qa_a) VALUES (?, ?) ON CONFLICT (qa_q) DO NOTHING", [json.dumps(qa[0]), json.dumps(qa[1])])
 		else:
-			db.execute("INSERT INTO qas (qa_q, qa_a, qa_q_txt, qa_a_txt) VALUES (?, ?, ?, ?)", [json.dumps(qa[0]), json.dumps(qa[1]), qa[2], qa[3]])
+			db.execute("INSERT INTO qas (qa_q, qa_a, qa_q_txt, qa_a_txt) VALUES (?, ?, ?, ?) ON CONFLICT (qa_q) DO NOTHING", [json.dumps(qa[0]), json.dumps(qa[1]), qa[2], qa[3]])
 	con.commit()
 	con.close()
 
@@ -174,9 +174,9 @@ def write_qs(Qs, txt=False):
 	db = con.cursor()
 	for q in Qs:
 		if not txt:
-			db.execute("INSERT INTO qs (q) VALUES (?)", [json.dumps(q)])
+			db.execute("INSERT INTO qs (q) VALUES (?) ON CONFLICT (q) DO NOTHING", [json.dumps(q)])
 		else:
-			db.execute("INSERT INTO qs (q, q_txt) VALUES (?, ?)", [json.dumps(q[0]), q[1]])
+			db.execute("INSERT INTO qs (q, q_txt) VALUES (?, ?) ON CONFLICT (q) DO NOTHING", [json.dumps(q[0]), q[1]])
 	con.commit()
 
 	db.execute("VACUUM")
