@@ -1,5 +1,6 @@
 DIRS = \
-	lg2/*/
+	lg2/*/ \
+	lg3/*/
 CLEANDIRS = $(DIRS:%=clean-%)
 
 all: $(DIRS)
