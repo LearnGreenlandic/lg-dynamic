@@ -7,7 +7,10 @@ import regex as re
 import sqlite3
 import subprocess
 import sys
-import zstd
+try:
+	from compression import zstd
+except ImportError:
+	import zstd
 from pathlib import Path
 
 dir = os.path.dirname(os.path.abspath(__file__))
